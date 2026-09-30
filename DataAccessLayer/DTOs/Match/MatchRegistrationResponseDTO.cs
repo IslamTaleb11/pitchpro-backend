@@ -1,0 +1,14 @@
+namespace DataAccessLayer.DTOs.Match
+{
+    public class MatchRegistrationResponseDTO
+    {
+        public int ID { get; set; }
+        public int ClubID { get; set; }
+        public int CategoryID { get; set; }
+        public string OpponentName { get; set; }
+        public DateTime Date { get; set; }
+        public TimeSpan KickoffTime { get; set; }
+        public bool IsCompleted { get; set; }
+        public bool IsHome { get; set; }
+    }
+}
