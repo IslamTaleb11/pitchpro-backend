@@ -2,22 +2,140 @@
 
 This repository contains the backend API for PitchPro (ASP.NET Core, .NET 8). This README documents how to install, configure, and run the project with the specifics you provided: ADO.NET for data access, Chargily for payments, Azure Blob Storage for images, and a database .bak file included in the repository.
 
-## Table of contents
-- About
-- Prerequisites
-- Project layout
-- Configuration (appsettings.json and environment variables)
-- Restore the database from database.bak
-- Running locally
-- Chargily integration
-- Azure Blob Storage for images
-- Notes and troubleshooting
-
 ## About
 
 Backend API for PitchPro built on .NET 8. Data access is implemented using ADO.NET (no EF Core migrations). Images are stored in Azure Blob Storage. Chargily is used for payment processing.
 
 Solution path: `PitchProAPI/PitchProAPI.sln`
+
+
+## Features
+
+### 🔐 Authentication & Authorization
+
+* JWT-based authentication with login, access tokens, and refresh tokens.
+* Refresh token lifecycle management and revocation.
+* Role-based authorization (e.g., President).
+* Email verification enforcement through `[EmailVerified]` middleware.
+* Rate limiting with:
+
+  * `AuthLimiter` — IP-based limiting.
+  * `UserLimiter` — per-user and per-endpoint limiting.
+* Custom model validation responses.
+
+### 👤 User & Identity
+
+* User registration and retrieval.
+* Login and token refresh endpoints.
+* JWT upgrade endpoint for synchronizing plan and subscription claims.
+
+### ⚽ Club Management
+
+* Create clubs with crest image upload using Azure Blob Storage.
+* Paginated club listing.
+* Get club by ID.
+* Delete clubs.
+* Club subscription resolution and plan management.
+
+### 🧑‍🤝‍🧑 Players & Person Entities
+
+* Create, update, and retrieve players.
+* Player photo uploads using Azure Blob Storage.
+* Query players by category.
+* Query players for match call-ups.
+* Player injury management.
+* Person and staff management.
+
+### 🏆 Matches
+
+* Create and update matches.
+* Set match results and mark matches as completed.
+* Match call-up management.
+* Match events and attendance management.
+* Paginated queries for completed matches by category.
+
+### 🏋️ Training Sessions
+
+* Create and update training sessions.
+* Mark training sessions as completed.
+* Paginated list of completed sessions.
+* Training attendance management.
+* Retrieve players by category.
+
+### 💳 Payments & Subscriptions
+
+* Chargily payment integration.
+* Create checkout sessions.
+* Webhook handling and validation middleware.
+* `PlanLimitService` for enforcing Free and Premium plan limits.
+* Subscription expiry and automatic plan downgrade handling.
+
+### 📊 Dashboard & Analytics
+
+* Dashboard summary metrics.
+* Club statistics and counts.
+
+### 👨‍💼 Admin & Roles
+
+* Role management endpoints.
+* Staff management endpoints.
+
+### 📋 Attendance, Call-ups & Events
+
+* Match attendance management.
+* Training attendance management.
+* Match call-up player endpoints.
+* Match event logging.
+
+### 🖼️ Image & File Handling
+
+* Azure Blob Storage integration through `BlobService`.
+* Image validation helpers.
+* Request size limits.
+* Configurable blob containers through application settings.
+
+### 📧 Email & Notifications
+
+* Email service integration through `IEmailService`.
+* Brevo configuration support.
+* Email verification flow and endpoints.
+
+### ⚙️ Infrastructure & Middleware
+
+* CORS configuration for frontend origins.
+* Swagger / OpenAPI documentation.
+* Rate limiting using `System.Threading.RateLimiting`.
+* Dynamic port binding for cloud hosting environments.
+* HTTP request helper utilities.
+* Client IP and device information extraction.
+
+### 🗄️ Data Access & Persistence
+
+* ADO.NET-based `DataAccessLayer` and `BusinessLayer`.
+* No Entity Framework Core.
+* SQL Server database.
+* `PitchPro.bak` included for database restoration.
+* DTOs and services for domain operations.
+
+### 🛠️ Developer & Runtime Aids
+
+* `launchSettings.json`.
+* Dockerfile.
+* HTTP request collection.
+* `appsettings.json` and `appsettings.Development.json` placeholders.
+
+### 🔧 Helpers & Services
+
+* `GeneralHelper` utilities.
+* Image validation.
+* JWT generation.
+* `RefreshTokenService`.
+* `PlanLimitService`.
+* `EmailService`.
+* `IMemoryCache` support.
+* `HttpClient` registration.
+
+
 
 ## Prerequisites
 
