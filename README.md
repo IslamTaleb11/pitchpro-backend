@@ -79,12 +79,12 @@ $env:Azure__ImagesContainer = "pitchpro-images"
 
 ## Restore the database from database.bak
 
-There is a `database.bak` file in the repository root. You must restore it to your SQL Server instance before running the API (unless you will create your own database and schema).
+There is a `PitchPro.bak` file in the repository root. You must restore it to your SQL Server instance before running the API (unless you will create your own database and schema).
 
 Recommended ways to restore:
 
 1) Using SQL Server Management Studio (SSMS)
-   - Copy `database.bak` to the SQL Server backup folder, or make it accessible from the server.
+   - Copy `PitchPro.bak` to the SQL Server backup folder, or make it accessible from the server.
    - In SSMS: Right-click Databases -> Restore Database -> Device -> select the .bak file -> provide new database name -> Files -> update the physical paths (MDF/LDF) if needed -> OK.
 
 2) Using sqlcmd / T-SQL (example). Edit paths and database name as needed:
