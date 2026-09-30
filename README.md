@@ -1,5 +1,5 @@
 # PitchPro (Frontend)
-github.com/islamTaleb11/pitchpro-frontend
+www.github.com/islamTaleb11/pitchpro-frontend
 
 # PitchPro API (Backend)
 
