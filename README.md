@@ -1,3 +1,6 @@
+# PitchPro (Frontend)
+github.com/islamTaleb11/pitchpro-frontend
+
 # PitchPro API (Backend)
 
 This repository contains the backend API for PitchPro (ASP.NET Core, .NET 8). This README documents how to install, configure, and run the project with the specifics you provided: ADO.NET for data access, Chargily for payments, Azure Blob Storage for images, and a database .bak file included in the repository.
